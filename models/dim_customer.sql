@@ -12,7 +12,6 @@ with customers as (
     from raw.jaffle_shop.customers
 
 ),
-
 orders as (
 
     select
