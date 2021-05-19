@@ -1,23 +1,22 @@
 with orders as (
 
-    select * from {{ ref('stg_orders')}}
+    select * from {{ ref('stg_orders') }}
 
 ),
 payments as (
     -- ask about specifics of parametirizing schema
-    select * from raw.stripe.payment
-
+    select * from {{ ref('stg_payment') }}
 ),
-fact_orders as (
+final as (
     select 
         ord.order_id,
         ord.customer_id,
         ord.order_date,
         ord.status,
-        zeroifnull(pay.amount) as amount
+        zeroifnull(pay.amount / 100) as amount
     from
         orders as ord
-    left join payments as pay on pay.orderid = ord.order_id
+    join payments as pay on pay.orderid = ord.order_id and pay.status = 'success'
 )
 
-select * from fact_orders
+select * from final
