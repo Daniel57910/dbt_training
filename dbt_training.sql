@@ -4,7 +4,6 @@ use database raw;
 
 create schema if not exists raw.jaffle_shop;
 
--- create this one directly in the schema
 create table if not exists raw.jaffle_shop.customers
 (
     id integer,
