@@ -8,3 +8,10 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 macro-paths: ["macros"]
 log-path: "logs"
+
+models:
+  jaffle_shop:
+    marts:
+      +materialized: view
+    staging:
+      +materialized: table
