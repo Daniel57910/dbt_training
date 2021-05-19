@@ -1,4 +1,4 @@
-name: 'dbt_utils'
+name: 'jaffle_shop'
 version: '0.1.0'
 
 require-dbt-version: [">=0.18.0", "<0.20.0"]
@@ -8,3 +8,10 @@ target-path: "target"
 clean-targets: ["target", "dbt_modules"]
 macro-paths: ["macros"]
 log-path: "logs"
+
+models:
+  jaffle_shop:
+    staging:
+      +materialized: table
+    stripe:
+      +materialized: table
