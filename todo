@@ -1,0 +1,3 @@
+Setup schema tests
+Add referential integrity tests for stg_orders
+Add one data quality test
