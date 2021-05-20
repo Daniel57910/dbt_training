@@ -7,6 +7,7 @@ models:
         tests:
           - unique
           - not_null
+
   - name: stg_orders
     columns:
       - name: status
@@ -18,3 +19,13 @@ models:
                 - returned
                 - placed
                 - return_pending
+
+  - name: fact_orders
+    columns:
+      - name: order_id
+        tests:
+          - relationships:
+              to: ref('stg_payment')
+              field: orderid
+
+
