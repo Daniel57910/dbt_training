@@ -1,4 +1,5 @@
 name: 'jaffle_shop'
+profile: 'jaffle_shop'
 version: '0.1.0'
 
 require-dbt-version: [">=0.18.0", "<0.20.0"]
@@ -13,6 +14,3 @@ models:
   jaffle_shop:
     staging:
       +materialized: table
-    stripe:
-      +materialized: table
-
