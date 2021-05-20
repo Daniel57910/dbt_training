@@ -6,7 +6,7 @@ create schema if not exists raw.jaffle_shop;
 
 create table if not exists raw.jaffle_shop.customers
 (
-    id integer,
+    id integer
     first_name varchar,
     last_name varchar
 );
