@@ -1,14 +1,11 @@
 with orders as (
-
     select * from {{ ref('stg_orders') }}
-
 ),
 payments as (
-    -- ask about specifics of parametirizing schema
     select * from {{ ref('stg_payment') }}
 ),
 final as (
-    select 
+    select
         ord.order_id,
         ord.customer_id,
         ord.order_date,
